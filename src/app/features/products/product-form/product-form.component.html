@@ -1,0 +1,86 @@
+<h2 mat-dialog-title>
+    {{ isEditMode ? 'Edit Laptop' : 'Add New Laptop' }}
+  </h2>
+  
+  <mat-dialog-content>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <!-- Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Product Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Price -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Price ($)</mat-label>
+        <input matInput type="number" formControlName="price" required>
+        <mat-error *ngIf="productForm.get('price')?.hasError('required')">
+          Price is required
+        </mat-error>
+        <mat-error *ngIf="productForm.get('price')?.hasError('min')">
+          Price must be positive
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Processor -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Processor</mat-label>
+        <input matInput formControlName="processor" required>
+        <mat-error *ngIf="productForm.get('processor')?.hasError('required')">
+          Processor is required
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- RAM -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>RAM (GB)</mat-label>
+        <input matInput type="number" formControlName="ramGB" required>
+        <mat-error *ngIf="productForm.get('ramGB')?.hasError('required')">
+          RAM is required
+        </mat-error>
+        <mat-error *ngIf="productForm.get('ramGB')?.hasError('min')">
+          Minimum 1GB
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Storage -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Storage (GB)</mat-label>
+        <input matInput type="number" formControlName="storageGB" required>
+        <mat-error *ngIf="productForm.get('storageGB')?.hasError('required')">
+          Storage is required
+        </mat-error>
+        <mat-error *ngIf="productForm.get('storageGB')?.hasError('min')">
+          Minimum 128GB
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Brand Dropdown -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Brand</mat-label>
+        <mat-select formControlName="brandId" required>
+          <mat-option *ngFor="let brand of brands" [value]="brand.id">
+            {{ brand.name }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="productForm.get('brandId')?.hasError('required')">
+          Brand is required
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button 
+      mat-raised-button 
+      color="primary" 
+      (click)="onSubmit()"
+      [disabled]="!productForm.valid"
+    >
+      {{ isEditMode ? 'Update' : 'Save' }}
+    </button>
+  </mat-dialog-actions>
