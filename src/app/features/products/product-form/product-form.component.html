@@ -1,0 +1,39 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+  <label>
+    Name:
+    <input formControlName="name" type="text" />
+  </label>
+
+  <label>
+    Description:
+    <textarea formControlName="description"></textarea>
+  </label>
+
+  <label>
+    Processor:
+    <input formControlName="processor" type="text" />
+  </label>
+
+  <label>
+    RAM:
+    <input formControlName="ram" type="text" />
+  </label>
+
+  <label>
+    ROM:
+    <input formControlName="rom" type="text" />
+  </label>
+
+  <label>
+    Brand:
+    <select formControlName="brandId">
+      <option value="">-- Select a Brand --</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{ brand.name }}
+      </option>
+    </select>
+  </label>
+
+  <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+
+</form>
