@@ -1,0 +1,31 @@
+
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <h2>Update Product</h2>
+    <label>
+      Name:
+      <input type="text" formControlName="name">
+    </label>
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
+    <label>
+      Processor:
+      <input type="text" formControlName="processor">
+    </label>
+    <label>
+      Ram:
+      <input type="text" formControlName="ram">
+    </label>
+    <label>
+      ROM:
+      <input type="text" formControlName="rom">
+    </label>
+    <label>
+      Brand ID:
+      <input type="text" formControlName="brandId">
+    </label>
+    <button type="submit" [disabled]="productForm.invalid">Update</button>
+  </form>
+</div>

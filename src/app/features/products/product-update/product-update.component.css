@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+form{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2{
+    text-align: center;
+}
+
+form label{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+form input{
+    padding: 5px;
+}
+
+button{
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+select{
+    padding: 5px;
+}

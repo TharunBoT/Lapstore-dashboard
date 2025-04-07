@@ -1,0 +1,43 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.product-form{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-form h2{
+    text-align: center;
+}
+
+.product-form label{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.product-form input{
+    padding: 5px;
+}
+
+.product-form button{
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.product-form select{
+    padding: 5px;
+}

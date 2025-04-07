@@ -1,0 +1,22 @@
+<div class="product-list">
+  <h2>Product List</h2>
+
+  <div *ngIf="isLoading">Loading...</div>
+  <button (click)="addProduct()" id="add-btn">Add Product</button>
+  <div class="list">
+    <div *ngFor="let product of products" class="card">
+      <h4>{{product.name}}</h4>
+      <p>{{product.description}}</p>
+      <p>Processor: {{product.processor}}</p>
+      <div class="flex">
+        <p>Ram: {{product.ram}}</p>
+        <p>Rom: {{product.rom}}</p>
+      </div>
+      <span>{{product.brandName}}</span>
+      <div class="flex" id="btn-flex">
+        <button (click)="updateProduct(product.id)" id="update-btn">Edit</button>
+        <button (click)="deleteProduct(product.id)" id="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
